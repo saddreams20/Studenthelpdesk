@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!--
+Template Name: Kiraric
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title> SHD| Ventilator</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1>SHD | Ventilator</h1>
+    </div>
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active"><a class="drop" href="#">Other Resources</a>
+          <ul>
+            <li class="active"><a href="ventilator.html">Ventilator</a></li>
+            <li><a href="oxygen.html">Oxygen</a></li>
+            <li><a href="beds.html">Beds</a></li>
+            <li><a href="meds.html">Medicine</a></li>
+            <li><a href="food.html">Food</a></li>
+            <li><a href="plasma.html">Plasma</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- ################################################################################################ -->
+  </header>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+      <table class="table table-striped">
+        <thead calss="">
+          <tr>
+            <th>Organisation/Institute</th>
+            <th>Resources</th>
+            <th>Contact Name</th>
+            <th>Contact</th>
+            <th>Location</th>
+            <th>City</th>
+            <th>Last Verified</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="demo"></tbody>
+      </table>
+</div>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript">    
+    let xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    let data = JSON.parse(this.responseText).feed.entry;
+
+    let i;
+    for (i = 0; i < data.length; i++) {
+      let organisation = data[i]["gsx$institutionorganisation"]["$t"];
+      let resource = data[i]["gsx$resource"]["$t"];
+      let contact_name = data[i]["gsx$contactname"]["$t"];
+      let contact = data[i]["gsx$contact"]["$t"];
+      let location = data[i]["gsx$location"]["$t"];
+      let city = data[i]["gsx$city"]["$t"];
+      let last_verified = data[i]["gsx$lastverified"]["$t"];
+      let remarks = data[i]["gsx$remarks"]["$t"];
+
+      document.getElementById("demo").innerHTML +=
+        "<tr>" +
+        "<td>" +
+        organisation +
+        "</td>" +
+        "<td>" +
+        resource +
+        "</td>" +
+        "<td>" +
+        contact_name +
+        "</td>" +
+        "<td>" +
+        contact +
+        "</td>" +
+        "<td>" +
+        location +
+        "</td>" +
+        "<td>" +
+        city +
+        "</td>" +
+        "<td>" +
+        last_verified +
+        "</td>" +
+        "<td>" +
+        remarks +
+        "</td>" +
+        "</tr>";
+    }
+  }
+};
+
+xmlhttp.open(
+  "GET",
+  "https://spreadsheets.google.com/feeds/list/1qbWWe5Ns03z4hmhx0AEaP2oBdIhU4TebFwLogSqR2Qk/od6/public/values?alt=json",
+  true
+);
+xmlhttp.send();
+    </script>
+
+            </article>
+          </li>
+        </ul>
+        </form>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_half first">
+      <h6 class="heading">Contact Us</h6>
+      <ul class="nospace btmspace-30 linklist contact">
+        <li><i class="fa fa-phone"></i> +91 98445 55999</li>
+        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+      </ul>
+      <ul class="faico clear">
+        <li><a class="faicon-instagram" href="https://instagram.com/student_help_desk_ind?igshid=ghf36spy3vgn"><i class="fa fa-instagram"></i></a></li>
+      </ul>
+    </div>
+    <div class="one_half">
+      <h6 class="heading">Join Our Team</h6>
+      <p class="nospace btmspace-30">Join our team to help people across India fight COVID.</p>
+      <footer><a class="btn" href="https://forms.gle/Wq23kP61qb8vSCVm9">Join Our Team&raquo;</a></footer>
+    </div>
+  </footer>
+</div>
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">SHD</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>
