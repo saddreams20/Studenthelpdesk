@@ -22,20 +22,8 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           overwrite: true
-          source: "site/*"
-          target: "compose/site"
-      - 
-        name: copy file 2
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: 22
-          overwrite: true
-          source: "Caddyfile,docker-compose.yml"
+          source: "site/*,Caddyfile,docker-compose.yml"
           target: "compose"
-
       - 
         name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
@@ -46,4 +34,5 @@ jobs:
           port: 22
           script: |
               whoami
+              cd compose
               docker-compose up -d --force-recreate
